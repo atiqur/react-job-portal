@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useLoaderData, useNavigate, useParams } from "react-router-dom"
 import { toast } from "react-toastify"
+import PropTypes from "prop-types"
 
 const EditJobPage = ({ updateJobSubmit }) => {
   const { id } = useParams()
@@ -242,6 +243,10 @@ const EditJobPage = ({ updateJobSubmit }) => {
       </section>
     </>
   )
+}
+
+EditJobPage.propTypes = {
+  updateJobSubmit: PropTypes.func.isRequired,
 }
 
 export default EditJobPage

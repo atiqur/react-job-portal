@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
+import PropTypes from "prop-types"
 
 const AddJobPage = ({ addJobSubmit }) => {
   const [title, setTitle] = useState("")
@@ -238,6 +239,10 @@ const AddJobPage = ({ addJobSubmit }) => {
       </section>
     </>
   )
+}
+
+AddJobPage.propTypes = {
+  addJobSubmit: PropTypes.func.isRequired,
 }
 
 export default AddJobPage

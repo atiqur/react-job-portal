@@ -1,9 +1,9 @@
-import { useLoaderData, useParams, Link, useNavigate } from "react-router-dom"
+import { useLoaderData, Link, useNavigate } from "react-router-dom"
 import { FaArrowCircleLeft, FaMapMarker } from "react-icons/fa"
 import { toast } from "react-toastify"
+import PropTypes from "prop-types"
 
 const JobPage = ({ deleteJob }) => {
-  const { id } = useParams()
   const job = useLoaderData()
   const navigate = useNavigate()
 
@@ -112,6 +112,10 @@ const jobLoader = async ({ params }) => {
   const res = await fetch(`/api/jobs/${params.id}`)
   const data = await res.json()
   return data
+}
+
+JobPage.propTypes = {
+  deleteJob: PropTypes.func,
 }
 
 export { JobPage as default, jobLoader }
